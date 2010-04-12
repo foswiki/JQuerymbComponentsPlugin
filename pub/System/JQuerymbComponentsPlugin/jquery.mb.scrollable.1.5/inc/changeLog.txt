@@ -1,0 +1,9 @@
+
+
+jQuery.mb.scrollable
+©2002 - 2009 Matteo Bicocchi
+ÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐÐ
+1.5 Major issue:
+  introduced the vertical scroll modality controlled by a new parameter "dir".
+
+1.0 First release

@@ -1,0 +1,127 @@
+body{
+  background: #918561 url("../elements/home_bgnd.png")
+  /*background: #a79d72*/
+}
+
+#wrapper{
+  display:none;
+  margin:auto;
+  margin-top:80px;
+  width:850px;
+}
+
+#myScroll{
+  border:1px dashed #DAD8B9;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+/*display:none;*/
+}
+.scrollEl{
+  display:none;
+  background: url("../elements/elBgndHover.png") no-repeat bottom;
+  /*border:1px solid #ddd;*/
+  font-family:sans-serif;
+  font-size:130%;
+  color:white;
+  height:110px;
+  padding:10px;
+  text-shadow:#999900 1px 1px 1px;
+  text-align:center;
+  /*-moz-border-radius: 8px;*/
+  /*-webkit-border-radius: 8px;*/
+}
+.scrollEl:hover{
+  background: url("../elements/elBgnd.png") no-repeat center;
+  /*border:1px solid #ddd;*/
+  cursor:pointer;
+}
+
+.scrollEl.buttonSel{
+  background: url("../elements/elBgndSelected.png") no-repeat bottom;
+  /*border-bottom:30px solid #ddd;*/
+  color: #01414C !important;
+  font:normal 150%/60% 'trebuchet MS', verdana, sans-serif;
+  text-shadow:#fff 1px 1px 1px;
+}
+
+#pataDesc{
+  display:none;
+  position:relative;
+  
+  margin-top:-7px;
+  margin-left:0;
+  margin-right:-3px;
+  background:#dad8b9;
+  font:normal 130%/160% 'trebuchet MS', verdana, sans-serif;
+  color:#333300;
+  /*min-height:300px;*/
+  padding:30px;
+  text-shadow:#fff 2px 1px 1px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-box-shadow:#333 1px 1px 2px;
+  -webkit-box-shadow:#333 -1px 1px 4px;
+}
+
+#controls{
+  position:relative;
+}
+#controls span{
+  display:inherit;
+  font:normal 120%/110% 'trebuchet MS', verdana, sans-serif;
+  background:#dad8b9;
+  /*border:2px solid #e9e8d8;*/
+  color:#01414C;
+  padding:10px;
+  text-shadow:#fff 1px 1px 1px;
+  cursor:pointer;
+  /*-moz-border-radius: 20px;*/
+  /*-webkit-border-radius: 20px;*/
+  /*-moz-box-shadow:#333 1px 1px 1px;*/
+  /*-webkit-box-shadow:#333 1px 1px 1px;*/
+}
+
+#controls .sel{
+  color:black !important;
+  font-weight:bold;
+}
+/*
+#controls .disabled{
+  display:none;
+  color:gray;
+}
+*/
+
+#controls .page{
+  padding:5px;
+  color:gray;
+}
+
+#controls span.next{
+  position:absolute;
+  width:25px;
+  height:30px;
+  background: url("../elements/next.png") no-repeat center center;
+  right:-27px;
+  top:32%;
+}
+#controls span.prev{
+  background: url("../elements/prev.png") no-repeat center center;
+  width:25px;
+  height:30px;
+  position:absolute;
+  left:-22px;
+  top:32%;
+}
+#controls span.next:hover{
+  background: url("../elements/nextHover.png") no-repeat center center;
+}
+#controls span.prev:hover{
+  background: url("../elements/prevHover.png") no-repeat center center;
+}
+#controls span.next.disabled{
+  background: url("../elements/nextDisabled.png") no-repeat center center;
+}
+#controls span.prev.disabled{
+  background: url("../elements/prevDisabled.png") no-repeat center center;
+}

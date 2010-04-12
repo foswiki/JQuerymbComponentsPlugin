@@ -1,0 +1,126 @@
+%META:TOPICINFO{author="ProjectContributor" date="1258382567" format="1.1" reprev="1.2" version="1.2"}%
+%META:TOPICPARENT{name="JQuerymbComponentsPlugin"}%
+---+ %TOPIC%
+%JQPLUGINS{"mb.menu"
+  format="
+    Homepage: $homepage <br />
+    Author(s): $author <br />
+    Version: $version
+  "
+}%
+
+%STARTSECTION{"summary"}%
+This is a powerful jQuery component to build easily a multilevel tree menu or a contextual menu (right click) in an intuitive way! 
+%ENDSECTION{"summary"}%
+
+---++ Examples
+
+%JQREQUIRE{mb.menu}%
+%ADDTOZONE{"body" 
+    tag="mbMenu::DEMO" 
+    text="<link rel='stylesheet' href='%PUBURLPATH%/%SYSTEMWEB%/JQuerymbComponentsPlugin/jquery.mb.menu.2.7.2/css/menu1.css' type='text/css'/>
+          <script type='text/javascript' src='%ATTACHURLPATH%/example.js'></script>"
+    requires="JQUERYPLUGIN::MB.MENU"
+}%
+
+---+++ Packeged Demo (hardcoded html)
+<div style="background: url(%PUBURLPATH%/%SYSTEMWEB%/JQuerymbComponentsPlugin/jquery.mb.menu.2.7.2/images/header_bgnd.jpg); padding:10px; color:white;font-size:16px; font-family:'Courier New', Courier, mono"> mbMenu</div>
+<table width="100%"  border="0" cellpadding="0" cellspacing="0" bgcolor="#EDEDED">
+  <tr>
+    <td width="180" height="33" style="padding:10px" class="style">
+    </td>
+    <td valign="bottom">
+      <table  border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" class="container">
+        <tr>
+          <td class="myMenu" align="right">
+
+            <!-- start horizontal menu -->
+
+            <table class="rootVoices" cellspacing='0' cellpadding='0' border='0'><tr>
+              <td class="rootVoice {menu: 'menu_12'}" >ajax menu 12</td>
+              <td class="rootVoice {menu: 'menu_2'}" >menu 2</td>
+              <td class="rootVoice {menu: 'menu_3'}" >menu 3</td>
+              <td class="rootVoice {menu: 'empty'}" onclick="window.open('http://www.open-lab.com','ww');">goto open-lab.com</td>
+            </tr></table>
+
+            <!-- end horizontal menu -->
+
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!-- menues -->
+<div id="menu_1" class="mbmenu">
+  <a rel="title" >title menu_1.1</a> <!-- menuvoice title-->
+  <a href="#" class="{img: 'ico_view.gif'}" >menu_1.1 (href target _self) </a> <!-- menuvoice with href-->
+  <a class="{action: 'document.title=(\'menu_1.2\')'}" >menu_1.2</a> <!-- menuvoice with js action-->
+  <a rel="separator"> </a> <!-- menuvoice separator-->
+  <a href="#" class="{action: 'document.title=(\'menu_1.3\')', disabled:true}">menu_1.3</a> <!-- menuvoice disabled-->
+  <a class="{action: 'document.title=(\'menu_1.4\')', menu:'menu_1', img: '24-book-blue-check.png'}">menu_1.4</a><!-- menuvoice with js action, image and submenu-->
+</div>
+
+<div id="menu_2" class="mbmenu">
+  <a rel="title" class="{action: 'document.title=(\'menu_2.1\')', img: 'icon_13.png'}">menu_2.1 TITLE</a>
+  <a class="{action: 'document.title=(\'menu_2.2\')'}">menu_2.2</a>
+  <a class="{menu: 'sub_menu_1', img: 'icon_14.png'}">menu_2.3</a>
+  <a class="{menu: 'sub_menu_2', img: '24-tag-add.png'}">menu_2.4</a>
+  <a rel="separator"> </a>
+  <a class="{action: 'document.title=(\'menu_2.4\')'}">menu_2.5</a>
+</div>
+
+<div id="menu_3" class="mbmenu" id="checkMenu">
+  <a rel="text" >
+    <form>
+      <img src="%PUBURLPATH%/%SYSTEMWEB%/JQuerymbComponentsPlugin/jquery.mb.menu.2.7.2/images/browser.png" alt="img" style="position:absolute;margin-top:-20px; margin-left:-25px;margin-bottom:10px"/><br/>
+      <input type="text" name="tuoTesto" value="you can have input inside" />
+      <input type="button" name="tuoTesto" value="submit" />
+      <table>
+        <tr><td><input type="checkbox" checked value="aaa"/></td><td>checkbox 1</td></tr>
+        <tr><td><input type="checkbox" value="aaa"/></td><td>checkbox 1</td></tr>
+        <tr><td><input type="checkbox" value="aaa"/></td><td>checkbox 1</td></tr>
+        <tr><td><input type="checkbox" value="aaa"/></td><td>checkbox 1</td></tr>
+      </table>
+    <br>
+    <br/>immagini che vuoi ed altro testo che ti pare Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi felis leo, consequat et, lacinia a, facilisis sit amet,<br/><br/>
+    </form>
+  </a>
+  <a rel="separator"> </a>
+  <a class="{action: 'document.title=(\'menu_3.1\')', img: 'iconDone.png'}">menu_3.1</a>
+  <a id="aaa" class="{menu:'sub_menu_2'}"  >submenu</a>
+  <a class="{action: 'document.title=(\'menu_3.4\')'}">menu_3.4 con testo veramente molto lungo</a>
+</div>
+
+<div id="sub_menu_1" class="mbmenu">
+  <a class="{action: 'document.title=(\'sub_menu_1.1\')'}">sub_menu_1.1</a>
+  <a rel="separator"> </a>
+  <a class="{menu:'menu_1'}">sub_menu_1.2</a>
+  <a class="{action: 'document.title=(\'sub_menu_1.3\')', img: 'bgColor.gif'}">sub_menu_1.3</a>
+  <a class="{action: 'document.title=(\'sub_menu_1.4\')',img: 'Applet.gif'}">sub_menu_1.4</a>
+</div>
+
+<div id="sub_menu_2" class="mbmenu">
+  <a class="{action: 'document.title=(\'sub_menu_2.1\')', img: 'buttonfind.gif'}" >sub_menu_2.1</a>
+  <a class="{action: 'document.title=(\'sub_menu_2.2\')'}">sub_menu_2.2</a>
+  <a rel="separator"> </a>
+  <a class="{action: 'document.title=(\'sub_menu_2.3\')'}">sub_menu_2.3</a>
+  <a class="{action: 'document.title=(\'sub_menu_2.4\')'}" >sub_menu_2.4</a>
+</div>
+
+<div id="conext_menu_1" class="mbmenu">
+  <a rel="text" >
+    <img src="%PUBURLPATH%/%SYSTEMWEB%/JQuerymbComponentsPlugin/jquery.mb.menu.2.7.2/images/browser.png" alt="img" style="position:absolute;margin-top:-20px; margin-left:-25px;margin-bottom:10px"/><br/>
+    <br/>immagini che vuoi ed altro testo che ti pare Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi felis leo, consequat et, lacinia a, facilisis sit amet,<br/><br/>
+  </a>
+  <a rel="separator"> </a>
+  <a class="{action: 'testForContextMenu()',img: 'iconDone.png'}" >test: get opener ID</a>
+  <a id="bbb" class="{menu:'sub_menu_2'}" >submenu</a>
+  <a class="{action: 'document.title=(\'conext_menu_1.4\')'}" >conext_menu_1.4 con testo veramente molto lungo</a>
+</div>
+
+<!-- end menues -->
+
+
+%META:FILEATTACHMENT{name="example.js" attachment="example.js" attr="" comment="" date="1257681912" path="example.js" size="250" user="ProjectContributor" version="1"}%

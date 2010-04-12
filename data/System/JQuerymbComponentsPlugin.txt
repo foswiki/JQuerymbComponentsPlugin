@@ -11,6 +11,26 @@ prefer.
 %TOC%
 
 ---++ Usage
+Available [[JQueryPlugin][jQuery]] plugins:
+%SEARCH{"META:TOPICPARENT.name='%TOPIC%'" 
+   type="query"
+   nonoise="on"
+   format="---+++ [[$web.$topic][$topic]] $percntINCLUDE{\"$topic\" section=\"summary\"}$percnt"
+}%
+
+---+++ Contains:
+        mb.containerPlus.2.4.7.zip   	jquery.mb.containerPlus.2.4.7    Featured mb.containerPlus jquery   	 Feb 26  	 353 KB  	 635  	 
+	jquery.mb.scrollable.1.5.7.zip 	jquery.mb.scrollable.1.5.7   Featured mb.scrollable jquery 	Jan 12 	506 KB 	1788 	 
+	jquery.mb.flipText.1.0.zip 	jquery.mb.flipText.1.0   Featured mb.flipText jquery 	Dec 04 	6.6 KB 	752 	 
+	jquery.mb.extruder.1.5.zip 	jquery.mb.extruder.1.5   Featured jquery mb.extruder 	Nov 06 	78.9 KB 	4211 	 
+	jquery.mb.gallery.1.5.5.zip 	jquery.mb.gallery1.5.5   Featured jquery mb.gallery 	Nov 02 	4.0 MB 	4132 	 
+	jquery.mb.scrollable.1.5.zip 	jquery.mb.scrollable.1.5   Featured jquery mb.scrollable 	Oct 18 	18.8 KB 	1179 	 
+	jquery.mb.menu.2.7.2b.zip 	jquery.mb.menu.2.7.2 b   Featured jquery mb.menu 	Oct 17 	73.1 KB 	8738 	 
+	jquery.mb.gallery.1.5.1.zip 	jquery.mb.gallery.1.5.1   Featured mb.gallery jquery 	Oct 06 	4.0 MB 	780 	 
+	jquery.mbTooltip.1.6.zip 	mbTooltip   mbTooltip jquery tooltip Featured 	Jun 2009 	54.1 KB 	5926 	 
+	jquery.mbImgNavigator.2.0.zip 	mbImgNavigator   mbImgNavigator jquery gallery Featured 	Jun 2009 	3.1 MB 	2326 	 
+	jquery.mbMaskedGallery.1.8.zip 	mbMaskedGallery   mbMaskedGallery jquery gallery Featured 	Jun 2009 	3.9 MB 	2415 	 
+	jquery.mbTabset.1.9.zip 	mbTabset   mbTabset jquery tabs Featured 	Jun 2009 	145 KB 	5047 
 
 ---++ Examples
 
@@ -21,11 +41,11 @@ prefer.
 ---++ Info
 
 Many thanks to the following sponsors for supporting this work:
-   * Acknowledge any sponsors here
+   * [[http://fosiki.com][fosiki]] Wiki support and development for Foswiki
 
-|  Author(s): | |
-|  Copyright: | &copy; |
-|  License: | [[http://www.gnu.org/licenses/gpl.html][GPL (Gnu General Public License)]] |
+|  Author(s): | Foswiki:Main.SvenDowideit |
+|  Copyright: | &copy; SvenDowideit@fosiki.com - http://fosiki.com |
+|  License: | [[http://www.gnu.org/licenses/gpl.html][GPL (Gnu General Public License)]] for Foswiki specific portions, MIT License for the mb.components |
 |  Release: | %$RELEASE% |
 |  Version: | %$VERSION% |
 |  Change History: | <!-- versions below in reverse order -->&nbsp; |

@@ -1,0 +1,4 @@
+jquery.mb.extruder
+
+1.0
+  Initial release.

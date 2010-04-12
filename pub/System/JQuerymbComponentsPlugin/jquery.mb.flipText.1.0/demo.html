@@ -1,0 +1,76 @@
+ <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<!--
+  ~ jquery.mb.components
+  ~ Copyright (c) 2001-2009. Matteo Bicocchi (Pupunzi); Open lab srl, Firenze - Italy
+  ~ email: info@pupunzi.com
+  ~ site: http://pupunzi.com
+  ~ Licences: MIT, GPL
+  -->
+
+<html>
+<head>
+  <title></title>
+  <style type="text/css">
+    body{
+      font-family: Helvetica,sans-serif;
+      margin:50px;
+    }
+    .tb {font-family: Helvetica,sans-serif; font-size:44px; background-color:white; color:black; display:block;}
+    .bt {font-family: Georgia,sans-serif; font-size:44px;background-color:white; color:orange; display:block;}
+
+
+    span.btn{
+      padding:10px;
+      display:inline-block;
+      cursor:pointer;
+      font:12px/14px Arial, Helvetica, sans-serif;
+      color:#aaa;
+      background-color:#eee;
+      -moz-border-radius:10px;
+      -webkit-border-radius:10px;
+      -moz-box-shadow:#999 2px 0px 3px;
+      -webkit-box-shadow:#999 2px 0px 3px;
+    }
+    span.btn:hover{
+      background-color:#000;
+    }
+
+  </style>
+  <script type="text/javascript" src="http://jquery.com/src/jquery-latest.js"></script>
+  <script type="text/javascript" src="inc/jquery.mb.flipText.min.js"></script>
+  <script type="text/javascript">
+
+    $(function(){
+      
+      if (self.location.href == top.location.href){
+        var logo=$("<a href='http://pupunzi.com'><img id='logo' border='0' src='http://pupunzi.com/images/logo.png' alt='mb.ideas.repository' style='display:none;'></a>").css({position:"absolute", top:10});
+        $("body").prepend(logo);
+        $("#logo").fadeIn();
+      }
+
+      $("#clickFliptb").one("click",function(){$(".tb").mbFlipText(true);$(this).css("visibility","hidden");});
+      $("#clickFlipbt").one("click",function(){$('.bt').mbFlipText(false);$(this).css("visibility","hidden");});
+    });
+
+  </script>
+
+</head>
+<body>
+<div style="clear:both;"></div>
+<div style="display:inline-block; padding:40px; width:400px; float:left;">
+
+  <span id="clickFliptb" class="btn" >flip this text <strong>top</strong> -> <strong>bottom</strong>:</span>
+  <br>
+  <br>
+  <div class="tb" >"text top to bottom"</div>
+</div>
+<div style="display:inline-block; padding:40px; width:400px;">
+  <span id="clickFlipbt" class="btn">flip this text <strong>bottom</strong> -> <strong>top</strong>:</span>
+  <br>
+  <br>
+  <span class="bt" >"text bottom to top"</span>
+</div>
+
+</body>
+</html>

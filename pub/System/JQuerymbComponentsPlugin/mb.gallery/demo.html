@@ -1,0 +1,272 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>mbGallery</title>
+
+  <style type="text/css">
+
+    .wrapper{
+      font-family:Arial, Helvetica, sans-serif;
+      margin-top:20px;
+      margin-left:50px;
+    }
+
+    .wrapper h1{
+      font-family:Arial, Helvetica, sans-serif;
+      font-size:26px;
+    }
+
+    .galleryIDX{
+      text-align:center;
+      width:400px;
+      margin:auto;
+      margin-top:180px;
+    }
+
+    .gallery{
+      padding:35px;
+    }
+    .mbGallery{
+      -moz-box-shadow:#333 2px 2px 5px;
+      -webkit-box-shadow:#333 2px 2px 5px;
+    }
+    .galleryCont{
+      display:none;
+    }
+    .descriptionBox{
+      font-size:10px;
+      background-color:#333333;
+      color:white;
+    }
+
+    .nextProject{
+      font-family:Arial, Helvetica, sans-serif;
+      color:#FFFFFF;
+      font-size:40px;
+    }
+    .desc{
+      font-family:Arial, Helvetica, sans-serif;
+      color:#000000;
+      font-size:14px;
+    }
+
+    .menu td{
+      padding:10px;
+      background-color:#FFFFFF;
+      font-family:Arial, Helvetica, sans-serif;
+      color:#CC0000;
+      font-size:14px;
+    }
+    .menu td a{
+      font-family:Arial, Helvetica, sans-serif;
+      text-decoration:none;
+      color:#CC0000;
+    }
+    .menu td a:hover{
+      font-family:Arial, Helvetica, sans-serif;
+      text-decoration:none;
+      color:#000000;
+    }
+    .imgDesc{
+      font-family:Arial, Helvetica, sans-serif;
+      color:#fff;
+      font-size:10px;
+
+    }
+    .galleryIDX .btn{
+      padding:5px;
+      padding-top:10px;
+      font-family:Arial, Helvetica, sans-serif;
+      font-size:12px;
+      color:#fff;
+      background:#333;
+      cursor:pointer;
+      display:inline-block;
+      width:110px;
+      margin:auto;
+      margin-top:45px;
+      -moz-border-radius:10px;
+      -webkit-border-radius:10px;
+    }
+
+    .galleryIDX .btn img{
+      padding-bottom:15px;
+    }
+
+    .mbMask{
+      position:absolute;
+      background:orange;
+      left:0;
+      top:0;
+      width:100%;
+      height:100%;
+    }
+
+  </style>
+  <script type="text/javascript" src="http://jquery.com/src/jquery-latest.js"></script>
+  <script type="text/javascript" src="inc/mbGallery.js"></script>
+  <script type="text/javascript">
+    $.fn.mbGallery.defaults={
+      galleryTop:20,
+      galleryWidth: 300,
+      galleryHeight: 300,
+      galleryMaxWidth: 0,
+      galleryMaxHeight: $("window").height()-120,
+      galleryColor: "#333",
+      galleryFrameBorder: 12,
+      galleryFrameColor: "#fff",
+      maskOpacity:.5,
+      maskBgnd:"transparent",
+
+      startFrom: "random",
+      headerOpacity: 0.8,
+      thumbsBorder: 4,
+      thumbHeight: 50,
+      thumbStripWidth:250,
+      thumbStripColor: "#333333",
+      thumbStripPos: "right",
+      thumbSelectColor: "black",
+      thumbOverColor: "#cccccc",
+      imageSelector: ".imgFull",
+      thumbnailSelector: ".imgThumb",
+      descSelector: ".imgDesc",
+      descriptionWidth:300,
+
+      labelColor: "#333",
+      labelColorDisactive: "#333",
+      labelTextColor: "#fff",
+      labelTextSize: "11px",
+      labelHeight: 20,
+
+      iconFolder: "elements/white",
+      fadeTime: 500,
+      autoSlide: true,
+      slideTimer: 6000,
+      autoSize: true,
+      startTimer:0
+    };
+  </script>
+</head>
+<body >
+<div class="wrapper">
+  <h1>mb.gallery.demo</h1>
+
+  <div class="galleryIDX">
+    <div class="btn"  onclick="$('#g1').mbGallery({maskBgnd:'#ccc', maskOpacity:.9});"><img class="imgThumb" src="gallery1/LR/04.jpg"><br/>show Gallery 1</div>
+    <div class="btn"  onclick="$('#g2').mbGallery({maskBgnd:'#ccc', maskOpacity:.9});"><img class="imgThumb" src="gallery2/LR/01.jpg"><br/>show Gallery 2</div>
+  </div>
+
+  <div align="center" height="500" class="gallery">
+
+    <div  id="g1" class="galleryCont">
+      <img class="imgThumb" src="gallery1/LR/01.jpg">
+      <img class="imgFull" src="gallery1/HR/01.jpg">
+      <div class="imgDesc">Description 01</div>
+
+      <img class="imgThumb" src="gallery1/LR/02.jpg">
+      <img class="imgFull" src="gallery1/HR/02.jpg">
+      <div class="imgDesc">Description 02</div>
+
+      <img class="imgThumb" src="gallery1/LR/03.jpg">
+      <img class="imgFull" src="gallery1/HR/03.jpg">
+      <div class="imgDesc">Description 03</div>
+
+      <img class="imgThumb" src="gallery1/LR/04.jpg">
+      <img class="imgFull" src="gallery1/HR/04.jpg">
+      <div class="imgDesc">Description 04</div>
+
+      <img class="imgThumb" src="gallery1/LR/05.jpg">
+      <img class="imgFull" src="gallery1/HR/05.jpg">
+      <div class="imgDesc">Description 05</div>
+
+      <img class="imgThumb" src="gallery1/LR/06.jpg">
+      <img class="imgFull" src="gallery1/HR/06.jpg">
+      <div class="imgDesc">Description 06</div>
+
+      <img class="imgThumb" src="gallery1/LR/07.jpg">
+      <img class="imgFull" src="gallery1/HR/07.jpg">
+      <div class="imgDesc">Description 07</div>
+
+      <img class="imgThumb" src="gallery1/LR/08.jpg">
+      <img class="imgFull" src="gallery1/HR/08.jpg">
+      <div class="imgDesc">Description 08</div>
+
+      <img class="imgThumb" src="gallery1/LR/09.jpg">
+      <img class="imgFull" src="gallery1/HR/09.jpg">
+      <div class="imgDesc">Description 09</div>
+
+      <img class="imgThumb" src="gallery1/LR/10.jpg">
+      <img class="imgFull" src="gallery1/HR/10.jpg">
+      <div class="imgDesc">Description 10</div>
+
+      <img class="imgThumb" src="gallery1/LR/11.jpg">
+      <img class="imgFull" src="gallery1/HR/11.jpg">
+      <div class="imgDesc">Description 11</div>
+    </div>
+
+    <div  id="g2" class="galleryCont">
+      <img class="imgThumb" src="gallery2/LR/01.jpg">
+      <img class="imgFull" src="gallery2/HR/01.jpg">
+      <div class="imgDesc">Description 01</div>
+
+      <img class="imgThumb" src="gallery2/LR/02.jpg">
+      <img class="imgFull" src="gallery2/HR/02.jpg">
+      <div class="imgDesc">Description 02</div>
+
+      <img class="imgThumb" src="gallery2/LR/03.jpg">
+      <img class="imgFull" src="gallery2/HR/03.jpg">
+      <div class="imgDesc">Description 03</div>
+
+      <img class="imgThumb" src="gallery2/LR/04.jpg">
+      <img class="imgFull" src="gallery2/HR/04.jpg">
+      <div class="imgDesc">Description 04</div>
+
+      <img class="imgThumb" src="gallery2/LR/05.jpg">
+      <img class="imgFull" src="gallery2/HR/05.jpg">
+      <div class="imgDesc">Description 05</div>
+
+      <img class="imgThumb" src="gallery2/LR/06.jpg">
+      <img class="imgFull" src="gallery2/HR/06.jpg">
+      <div class="imgDesc">Description 06</div>
+
+      <img class="imgThumb" src="gallery2/LR/07.jpg">
+      <img class="imgFull" src="gallery2/HR/07.jpg">
+      <div class="imgDesc">Description 07</div>
+
+      <img class="imgThumb" src="gallery2/LR/08.jpg">
+      <img class="imgFull" src="gallery2/HR/08.jpg">
+      <div class="imgDesc">Description 08</div>
+
+      <img class="imgThumb" src="gallery2/LR/09.jpg">
+      <img class="imgFull" src="gallery2/HR/09.jpg">
+      <div class="imgDesc">Description 09</div>
+
+      <img class="imgThumb" src="gallery2/LR/10.jpg">
+      <img class="imgFull" src="gallery2/HR/10.jpg">
+      <div class="imgDesc">Description 10</div>
+
+      <img class="imgThumb" src="gallery2/LR/11.jpg">
+      <img class="imgFull" src="gallery2/HR/11.jpg">
+      <div class="imgDesc">Description 11</div>
+
+      <img class="imgThumb" src="gallery2/LR/12.jpg">
+      <img class="imgFull" src="gallery2/HR/12.jpg">
+      <div class="imgDesc">Description 11</div>
+
+      <img class="imgThumb" src="gallery2/LR/13.jpg">
+      <img class="imgFull" src="gallery2/HR/13.jpg">
+      <div class="imgDesc">Description 11</div>
+
+      <img class="imgThumb" src="gallery2/LR/14.jpg">
+      <img class="imgFull" src="gallery2/HR/14.jpg">
+      <div class="imgDesc">Description 11</div>
+
+    </div>
+
+
+  </div>
+</div>
+</body>
+</html>
