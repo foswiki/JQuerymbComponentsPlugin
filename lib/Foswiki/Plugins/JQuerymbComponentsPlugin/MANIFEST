@@ -1,0 +1,4 @@
+# Release manifest for JQuerymbComponentsPlugin
+data/System/JQuerymbComponentsPlugin.txt 0644 Documentation
+lib/Foswiki/Plugins/JQuerymbComponentsPlugin.pm 0644 Perl module
+
