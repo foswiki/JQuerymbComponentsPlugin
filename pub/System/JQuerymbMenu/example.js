@@ -32,12 +32,12 @@
     $(function(){
       $(".myMenu").buildMenu(
       {
-        template:foswiki.pubUrlPath+"/"+foswiki.systemWebName +"/JQuerymbComponentsPlugin/jquery.mb.menu.2.7.2/menuVoices.html",
+        template:foswiki.pubUrlPath+"/"+foswiki.systemWebName +"/JQuerymbComponentsPlugin/jquery.mb.menu/menuVoices.html",
         additionalData:"pippo=1",
         menuWidth:200,
         openOnRight:false,
         menuSelector: ".menuContainer",
-        iconPath:foswiki.pubUrlPath+"/"+foswiki.systemWebName +"/JQuerymbComponentsPlugin/jquery.mb.menu.2.7.2/ico/",
+        iconPath:foswiki.pubUrlPath+"/"+foswiki.systemWebName +"/JQuerymbComponentsPlugin/jquery.mb.menu/ico/",
         hasImages:true,
         fadeInTime:100,
         fadeOutTime:300,

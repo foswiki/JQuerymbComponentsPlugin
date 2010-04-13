@@ -18,39 +18,24 @@ This is a powerful jQuery component to build easily a multilevel tree menu or a 
 %JQREQUIRE{mb.menu}%
 %ADDTOZONE{"body" 
     tag="mbMenu::DEMO" 
-    text="<link rel='stylesheet' href='%PUBURLPATH%/%SYSTEMWEB%/JQuerymbComponentsPlugin/jquery.mb.menu.2.7.2/css/menu1.css' type='text/css'/>
+    text="<link rel='stylesheet' href='%PUBURLPATH%/%SYSTEMWEB%/JQuerymbComponentsPlugin/jquery.mb.menu/css/menu_red.css' type='text/css'/>
           <script type='text/javascript' src='%ATTACHURLPATH%/example.js'></script>"
     requires="JQUERYPLUGIN::MB.MENU"
 }%
 
----+++ Packeged Demo (hardcoded html)
-<div style="background: url(%PUBURLPATH%/%SYSTEMWEB%/JQuerymbComponentsPlugin/jquery.mb.menu.2.7.2/images/header_bgnd.jpg); padding:10px; color:white;font-size:16px; font-family:'Courier New', Courier, mono"> mbMenu</div>
-<table width="100%"  border="0" cellpadding="0" cellspacing="0" bgcolor="#EDEDED">
-  <tr>
-    <td width="180" height="33" style="padding:10px" class="style">
-    </td>
-    <td valign="bottom">
-      <table  border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" class="container">
-        <tr>
-          <td class="myMenu" align="right">
+---+++ Packaged Demo (hardcoded html)
 
-            <!-- start horizontal menu -->
+<div class="myMenu" align="left" style="align:left;width:100%">
+  <!-- start horizontal menu -->
+  <table class="rootVoices" cellspacing='0' cellpadding='0' border='0'><tr>
+    <td class="rootVoice {menu: 'menu_12'}" >ajax menu 12</td>
+    <td class="rootVoice {menu: 'menu_2'}" >menu 2</td>
+    <td class="rootVoice {menu: 'menu_3'}" >menu 3</td>
+    <td class="rootVoice {menu: 'empty'}" onclick="window.open('http://www.open-lab.com','ww');">goto open-lab.com</td>
+  </tr></table>
+  <!-- end horizontal menu -->
+</div>
 
-            <table class="rootVoices" cellspacing='0' cellpadding='0' border='0'><tr>
-              <td class="rootVoice {menu: 'menu_12'}" >ajax menu 12</td>
-              <td class="rootVoice {menu: 'menu_2'}" >menu 2</td>
-              <td class="rootVoice {menu: 'menu_3'}" >menu 3</td>
-              <td class="rootVoice {menu: 'empty'}" onclick="window.open('http://www.open-lab.com','ww');">goto open-lab.com</td>
-            </tr></table>
-
-            <!-- end horizontal menu -->
-
-          </td>
-        </tr>
-      </table>
-    </td>
-  </tr>
-</table>
 
 <!-- menues -->
 <div id="menu_1" class="mbmenu">
@@ -74,7 +59,7 @@ This is a powerful jQuery component to build easily a multilevel tree menu or a 
 <div id="menu_3" class="mbmenu" id="checkMenu">
   <a rel="text" >
     <form>
-      <img src="%PUBURLPATH%/%SYSTEMWEB%/JQuerymbComponentsPlugin/jquery.mb.menu.2.7.2/images/browser.png" alt="img" style="position:absolute;margin-top:-20px; margin-left:-25px;margin-bottom:10px"/><br/>
+      <img src="%PUBURLPATH%/%SYSTEMWEB%/JQuerymbComponentsPlugin/jquery.mb.menu/images/browser.png" alt="img" style="position:absolute;margin-top:-20px; margin-left:-25px;margin-bottom:10px"/><br/>
       <input type="text" name="tuoTesto" value="you can have input inside" />
       <input type="button" name="tuoTesto" value="submit" />
       <table>
@@ -111,7 +96,7 @@ This is a powerful jQuery component to build easily a multilevel tree menu or a 
 
 <div id="conext_menu_1" class="mbmenu">
   <a rel="text" >
-    <img src="%PUBURLPATH%/%SYSTEMWEB%/JQuerymbComponentsPlugin/jquery.mb.menu.2.7.2/images/browser.png" alt="img" style="position:absolute;margin-top:-20px; margin-left:-25px;margin-bottom:10px"/><br/>
+    <img src="%PUBURLPATH%/%SYSTEMWEB%/JQuerymbComponentsPlugin/jquery.mb.menu/images/browser.png" alt="img" style="position:absolute;margin-top:-20px; margin-left:-25px;margin-bottom:10px"/><br/>
     <br/>immagini che vuoi ed altro testo che ti pare Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi felis leo, consequat et, lacinia a, facilisis sit amet,<br/><br/>
   </a>
   <a rel="separator"> </a>
