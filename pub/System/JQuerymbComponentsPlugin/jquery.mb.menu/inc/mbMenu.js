@@ -318,8 +318,18 @@
         });
       }
       $(this.menuContainer).attr("id", "mb_"+m).hide();
-      this.voices= $("#"+m).find("a").clone(true);
-
+      
+      var isMegaMenu=$("#"+m).attr("type")=="literal";
+      if (isMegaMenu) {
+        this.voices = $("#"+m).clone(true);
+        this.voices.css({display: "inline"});
+        this.voices.removeClass("mbmenu");
+        this.voices.addClass("literalMenu");
+        this.voices.attr("id", m+"_clone");
+      } else {
+        //TODO this will break <a rel=text> - if there are nested a's
+        this.voices= $("#"+m).find("a").clone(true);
+      }
 
       if (op.options.shadow) {
         var shadow = $("<div class='menuShadow'></div>").hide();
@@ -352,7 +362,7 @@
         var isDisabled=$(voice).is("[disabled]");
         var isSeparator=$(voice).attr("rel")=="separator";
 
-        if (op.options.hasImages && !isText){
+        if (op.options.hasImages && !isText && !isMegaMenu){
 
           var imgPath=$(voice).attr("img")?$(voice).attr("img"):"blank.gif";
           imgPath=(imgPath.length>3 && imgPath.indexOf(".")>-1)?"<img class='imgLine' src='"+op.options.iconPath+imgPath+"'>":imgPath;
@@ -363,6 +373,8 @@
           line="<p class='separator' style='width:100%;'></p>";
         if(isText)
           line="<div style='width:100%; display:table' class='line' id='"+m+"_"+i+"'><div class='voice'></div></div>";
+        if(isMegaMenu)
+          line="<div style='width:100%; display:inline' class='line' id='"+m+"_"+i+"'><div class='voice'></div></div>";
 
         $(opener.menuContainer).append(line);
 

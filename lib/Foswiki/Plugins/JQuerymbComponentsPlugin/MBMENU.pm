@@ -16,26 +16,34 @@ Constructor
 =cut
 
 sub new {
-  my $class = shift;
-  my $session = shift || $Foswiki::Plugins::SESSION;
+    my $class = shift;
+    my $session = shift || $Foswiki::Plugins::SESSION;
 
-  my $this = bless($class->SUPER::new( 
-    $session,
-    name => 'mb.Menu',
-    version => '2.8.1',
-    author => 'Matteo Bicocchi',
-    homepage => 'http://wiki.github.com/pupunzi/jquery.mb.menu/',
-    documentation => "$Foswiki::cfg{SystemWebName}.JQuerymbMenu",
-    puburl => '%PUBURLPATH%/%SYSTEMWEB%/JQuerymbComponentsPlugin/jquery.mb.menu',
-    javascript => ['inc/jquery.metadata.js', 'inc/mbMenu.js', 'inc/jquery.hoverIntent.js']
-  ), $class);
-  
-  Foswiki::Func::registerTagHandler('MENU', \&MENU );
-  Foswiki::Func::registerTagHandler('ENDMENU', \&ENDMENU );
-  Foswiki::Func::registerTagHandler('SUBMENU', \&SUBMENU );
-  Foswiki::Func::registerTagHandler('ENDSUBMENU', \&ENDSUBMENU );
+    my $this = bless(
+        $class->SUPER::new(
+            $session,
+            name          => 'mb.Menu',
+            version       => '2.8.1-sven',
+            author        => 'Matteo Bicocchi',
+            homepage      => 'http://wiki.github.com/pupunzi/jquery.mb.menu/',
+            documentation => "$Foswiki::cfg{SystemWebName}.JQuerymbMenu",
+            puburl =>
+'%PUBURLPATH%/%SYSTEMWEB%/JQuerymbComponentsPlugin/jquery.mb.menu',
+            javascript => [
+                'inc/jquery.metadata.js', 'inc/mbMenu.js',
+                'inc/jquery.hoverIntent.js'
+            ]
+        ),
+        $class
+    );
 
-  return $this;
+    Foswiki::Func::registerTagHandler( 'MENU',       \&MENU );
+    Foswiki::Func::registerTagHandler( 'ENDMENU',    \&ENDMENU );
+    Foswiki::Func::registerTagHandler( 'MENUITEM',   \&MENUITEM );
+    Foswiki::Func::registerTagHandler( 'SUBMENU',    \&SUBMENU );
+    Foswiki::Func::registerTagHandler( 'ENDSUBMENU', \&ENDSUBMENU );
+
+    return $this;
 }
 
 =begin TML
@@ -70,7 +78,30 @@ Setting "empty" as value of the "menu" attribute no submenu'll be shown
 =cut
 
 sub MENU {
-  my ($this, $params, $theTopic, $theWeb) = @_;
+    my ( $this, $params, $theTopic, $theWeb ) = @_;
+
+    my $name     = $params->{name};
+    my $extraCss = $params->{css};
+
+    #TODO: need to de-hardcode the js - is only works on 'myMenu' atm
+
+#  Foswiki::Func::addToZone( "body", 'mbMenu::menu_red','<link rel="stylesheet" href="%PUBURLPATH%/%SYSTEMWEB%/JQuerymbComponentsPlugin/jquery.mb.menu/css/menu_red.css" type="text/css"/>');
+    Foswiki::Func::addToZone(
+        "body",
+        'mbMenu::menu_red_' . $name,
+        '<link rel="stylesheet" href="' . $extraCss . '" type="text/css"/>'
+    );
+    Foswiki::Func::addToZone(
+        "body",
+        'mbMenu::simple_js',
+'<script type="text/javascript" src="%PUBURLPATH%/%SYSTEMWEB%/JQuerymbMenu/example.js"></script>',
+        'JQUERYPLUGIN::MB.MENU'
+    );
+
+    return "\%JQREQUIRE{mb.menu}\%
+<div class=\"mbMenuRoot\" id=\"$name\">
+  <!-- start horizontal menu -->
+  <div class=\"rootVoices\" >";
 }
 
 =begin TML
@@ -81,12 +112,16 @@ sub MENU {
 =cut
 
 sub ENDMENU {
-  my ($this, $params, $theTopic, $theWeb) = @_;
+    my ( $this, $params, $theTopic, $theWeb ) = @_;
+
+    return "</div>
+  <!-- end horizontal menu -->
+</div>";
 }
 
 =begin TML
 
----++ ClassMethod SUBMENU( $this, $params, $topic, $web ) -> $result
+---++ ClassMethod MENUITEM( $this, $params, $topic, $web ) -> $result
 
        <div id="[menu_ID]" class="mbmenu">
         <a rel="title">[title of the menu]</a>
@@ -109,8 +144,53 @@ should be written:
 
 =cut
 
+sub MENUITEM {
+    my ( $this, $params, $theTopic, $theWeb ) = @_;
+
+    my $title  = $params->{_DEFAULT} || '';
+    my $menu   = $params->{menu};
+    my $img    = $params->{img};
+    my $action = $params->{action};
+    my $href   = '';
+    $href = 'href="' . $params->{href} . '" ' if ( defined( $params->{href} ) );
+    my $type = $params->{type};
+    my $css  = '';
+    $css = 'style="' . $params->{css} . '" ' if ( defined( $params->{css} ) );
+
+    my @jsonAttr = ();
+    foreach my $key (qw/menu action img/) {
+        if ( defined( $params->{$key} ) ) {
+            push( @jsonAttr, "$key: '" . $params->{$key} . "'" );
+        }
+    }
+
+    my $relAttr = '';
+    $relAttr = "rel=\"$type\" " if ( defined($type) );
+
+    my $tmpl = "<a " . $relAttr . $href
+
+      #TODO: add href for non-js
+      . "class=\"rootVoice {" . join( ', ', @jsonAttr ) . "}\" $css>$title</a>";
+    return $tmpl;
+}
+
+=begin TML
+
+---++ ClassMethod ENDSUBMENU( $this, $params, $topic, $web ) -> $result
+
+
+=cut
+
 sub SUBMENU {
-  my ($this, $params, $theTopic, $theWeb) = @_;
+    my ( $this, $params, $theTopic, $theWeb ) = @_;
+
+    my $name = $params->{name};
+    my $type = $params->{type} || '';
+    if ( $type ne '' ) {
+        $type = "type=\"$type\"";
+    }
+
+    return '<div id="' . $name . '" class="mbmenu" ' . $type . ' >';
 }
 
 =begin TML
@@ -121,7 +201,9 @@ sub SUBMENU {
 =cut
 
 sub ENDSUBMENU {
-  my ($this, $params, $theTopic, $theWeb) = @_;
+    my ( $this, $params, $theTopic, $theWeb ) = @_;
+
+    return '</div>';
 }
 
 1;
