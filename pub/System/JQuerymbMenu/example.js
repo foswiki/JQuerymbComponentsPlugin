@@ -59,4 +59,11 @@
     }
             );
 
-
+editMenu = function(obj, web, topic) {
+  var menu_id = $(obj).parent().parent().attr('id');
+  var menu_class = $(obj).parent().parent().attr('class');
+  
+  $('<div><h3>TODO</h3> edit the '+menu_id+' class '+menu_class+' menu<br />from topic '+web+'.'+topic+'<br /></div>').modal({});
+  
+  return false; //prevent the default handler
+}

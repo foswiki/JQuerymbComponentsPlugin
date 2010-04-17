@@ -98,7 +98,7 @@ sub MENU {
         'JQUERYPLUGIN::MB.MENU'
     );
 
-    return "\%JQREQUIRE{mb.menu}\%
+    return "
 <div class=\"mbMenuRoot\" id=\"$name\">
   <!-- start horizontal menu -->
   <div class=\"rootVoices\" >";
@@ -150,15 +150,15 @@ sub MENUITEM {
     my $title  = $params->{_DEFAULT} || '';
     my $menu   = $params->{menu};
     my $img    = $params->{img};
-    my $action = $params->{action};
+    my $action = '';            #not sure why the action: attribute isn't working for me - TODO
+    $action = 'onclick="'.$params->{action}.'" ' if ( defined( $params->{action} ) );
     my $href   = '';
     $href = 'href="' . $params->{href} . '" ' if ( defined( $params->{href} ) );
     my $type = $params->{type};
-    my $css  = '';
-    $css = 'style="' . $params->{css} . '" ' if ( defined( $params->{css} ) );
+    my $cssClass  = $params->{css} || '';
 
     my @jsonAttr = ();
-    foreach my $key (qw/menu action img/) {
+    foreach my $key (qw/menu img/) {
         if ( defined( $params->{$key} ) ) {
             push( @jsonAttr, "$key: '" . $params->{$key} . "'" );
         }
@@ -167,10 +167,10 @@ sub MENUITEM {
     my $relAttr = '';
     $relAttr = "rel=\"$type\" " if ( defined($type) );
 
-    my $tmpl = "<a " . $relAttr . $href
+    my $tmpl = "<a " . $relAttr . $href . $action
 
       #TODO: add href for non-js
-      . "class=\"rootVoice {" . join( ', ', @jsonAttr ) . "}\" $css>$title</a>";
+      . "class=\"rootVoice $cssClass {" . join( ', ', @jsonAttr ) . "}\" >$title</a>";
     return $tmpl;
 }
 
