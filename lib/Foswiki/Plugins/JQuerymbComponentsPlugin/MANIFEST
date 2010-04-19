@@ -124,7 +124,7 @@ pub/System/JQuerymbComponentsPlugin/jquery.mb.gallery.1.5.5/inc/mbGallery.js
 pub/System/JQuerymbComponentsPlugin/jquery.mb.gallery.1.5.5/inc/mbGallery.min.js
 pub/System/JQuerymbComponentsPlugin/jquery.mb.gallery.1.5.5/elements
 pub/System/JQuerymbComponentsPlugin/jquery.mb.gallery.1.5.5/elements/white
-pub/System/JQuerymbComponentsPlugin/jquery.mb.gallery.1.5.5/elements/white/thumb copia.gif
+#pub/System/JQuerymbComponentsPlugin/jquery.mb.gallery.1.5.5/elements/white/thumb copia.gif
 pub/System/JQuerymbComponentsPlugin/jquery.mb.gallery.1.5.5/elements/white/prev.gif
 pub/System/JQuerymbComponentsPlugin/jquery.mb.gallery.1.5.5/elements/white/next.gif
 pub/System/JQuerymbComponentsPlugin/jquery.mb.gallery.1.5.5/elements/white/thumb.gif
@@ -137,7 +137,7 @@ pub/System/JQuerymbComponentsPlugin/jquery.mb.gallery.1.5.5/elements/white/loade
 pub/System/JQuerymbComponentsPlugin/jquery.mb.gallery.1.5.5/elements/white/loaded.gif
 pub/System/JQuerymbComponentsPlugin/jquery.mb.gallery.1.5.5/elements/blockBgnd.png
 pub/System/JQuerymbComponentsPlugin/jquery.mb.gallery.1.5.5/elements/black
-pub/System/JQuerymbComponentsPlugin/jquery.mb.gallery.1.5.5/elements/black/thumb copia.gif
+#pub/System/JQuerymbComponentsPlugin/jquery.mb.gallery.1.5.5/elements/black/thumb copia.gif
 pub/System/JQuerymbComponentsPlugin/jquery.mb.gallery.1.5.5/elements/black/prev.gif
 pub/System/JQuerymbComponentsPlugin/jquery.mb.gallery.1.5.5/elements/black/next.gif
 pub/System/JQuerymbComponentsPlugin/jquery.mb.gallery.1.5.5/elements/black/thumb.gif
@@ -633,7 +633,7 @@ pub/System/JQuerymbComponentsPlugin/mb.gallery/inc/mbGallery.js
 pub/System/JQuerymbComponentsPlugin/mb.gallery/inc/mbGallery.min.js
 pub/System/JQuerymbComponentsPlugin/mb.gallery/elements
 pub/System/JQuerymbComponentsPlugin/mb.gallery/elements/white
-pub/System/JQuerymbComponentsPlugin/mb.gallery/elements/white/thumb copia.gif
+#pub/System/JQuerymbComponentsPlugin/mb.gallery/elements/white/thumb copia.gif
 pub/System/JQuerymbComponentsPlugin/mb.gallery/elements/white/prev.gif
 pub/System/JQuerymbComponentsPlugin/mb.gallery/elements/white/next.gif
 pub/System/JQuerymbComponentsPlugin/mb.gallery/elements/white/thumb.gif
@@ -646,7 +646,7 @@ pub/System/JQuerymbComponentsPlugin/mb.gallery/elements/white/loader.gif
 pub/System/JQuerymbComponentsPlugin/mb.gallery/elements/white/loaded.gif
 pub/System/JQuerymbComponentsPlugin/mb.gallery/elements/blockBgnd.png
 pub/System/JQuerymbComponentsPlugin/mb.gallery/elements/black
-pub/System/JQuerymbComponentsPlugin/mb.gallery/elements/black/thumb copia.gif
+#pub/System/JQuerymbComponentsPlugin/mb.gallery/elements/black/thumb copia.gif
 pub/System/JQuerymbComponentsPlugin/mb.gallery/elements/black/prev.gif
 pub/System/JQuerymbComponentsPlugin/mb.gallery/elements/black/next.gif
 pub/System/JQuerymbComponentsPlugin/mb.gallery/elements/black/thumb.gif

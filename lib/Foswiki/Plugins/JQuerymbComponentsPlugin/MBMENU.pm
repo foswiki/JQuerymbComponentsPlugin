@@ -77,10 +77,34 @@ Setting "empty" as value of the "menu" attribute no submenu'll be shown
 
 =cut
 
+our @menuStack;
+sub pushMenu {
+    my $name = shift;
+    push (@menuStack, $name);
+ }
+
+sub popMenu {
+    my ( $this, $params, $theTopic, $theWeb ) = @_;
+
+    my $name = pop(@menuStack);
+    if (Foswiki::Func::isGuest()) {
+        return '<span class="foswikiRight rootMenu">%LOGIN%</span>';
+    } else {
+        return Foswiki::Plugins::JQuerymbComponentsPlugin::MBMENU::MENUITEM($this, {
+                    _DEFAULT=>" %ICONURL{uweb_m12}% edit menu",
+                    type=>"footer",
+                    css=>"foswikiRight",
+                    action=>"return editMenu(this, '$name', '%WEB%', '%TOPIC%'); return false;"
+                    }, $theTopic, $theWeb );
+    }
+}
+
+
 sub MENU {
     my ( $this, $params, $theTopic, $theWeb ) = @_;
 
     my $name     = $params->{name};
+    pushMenu($name);
     my $extraCss = $params->{css};
 
     #TODO: need to de-hardcode the js - is only works on 'myMenu' atm
@@ -114,7 +138,9 @@ sub MENU {
 sub ENDMENU {
     my ( $this, $params, $theTopic, $theWeb ) = @_;
 
-    return "</div>
+    my $edit = popMenu( $this, $params, $theTopic, $theWeb );
+
+    return $edit."</div>
   <!-- end horizontal menu -->
 </div>";
 }
@@ -185,6 +211,7 @@ sub SUBMENU {
     my ( $this, $params, $theTopic, $theWeb ) = @_;
 
     my $name = $params->{name};
+    pushMenu($name);
     my $type = $params->{type} || '';
     if ( $type ne '' ) {
         $type = "type=\"$type\"";
@@ -202,8 +229,11 @@ sub SUBMENU {
 
 sub ENDSUBMENU {
     my ( $this, $params, $theTopic, $theWeb ) = @_;
+    
+    my $edit = popMenu( $this, $params, $theTopic, $theWeb );
 
-    return '</div>';
+
+    return $edit.'</div>';
 }
 
 1;

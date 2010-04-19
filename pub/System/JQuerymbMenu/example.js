@@ -59,11 +59,23 @@
     }
             );
 
-editMenu = function(obj, web, topic) {
-  var menu_id = $(obj).parent().parent().attr('id');
-  var menu_class = $(obj).parent().parent().attr('class');
+
+editMenu = function(obj, menu_name, web, topic) {
+  var menu_class = $('#'+menu_name).attr('class');
   
-  $('<div><h3>TODO</h3> edit the '+menu_id+' class '+menu_class+' menu<br />from topic '+web+'.'+topic+'<br /></div>').modal({});
+  var editurl = foswiki.scriptUrl+ '/edit/';
+  $.edit(editurl, 
+        { 
+           'topic': web+'.'+topic,
+           nowysiwyg: 'on',
+           contenttype: "text/plain", 
+           skin: 'text'
+        }, 
+        function(topicTML) { 
+          
+          $('<div><h3>TODO: Edit '+menu_name+'('+menu_class+')</h3>from topic '+web+'.'+topic+'<br />'+results+'</div>').modal({});
+        }); 
   
+
   return false; //prevent the default handler
 }
