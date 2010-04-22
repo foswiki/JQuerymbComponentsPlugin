@@ -60,22 +60,46 @@
             );
 
 
+
 editMenu = function(obj, menu_name, web, topic) {
-  var menu_class = $('#'+menu_name).attr('class');
+  var menu = $('#'+menu_name);
+  var menu_class = menu.attr('class');
   
-  var editurl = foswiki.scriptUrl+ '/edit/';
-  $.edit(editurl, 
-        { 
-           'topic': web+'.'+topic,
-           nowysiwyg: 'on',
-           contenttype: "text/plain", 
-           skin: 'text'
-        }, 
-        function(topicTML) { 
-          
-          $('<div><h3>TODO: Edit '+menu_name+'('+menu_class+')</h3>from topic '+web+'.'+topic+'<br />'+results+'</div>').modal({});
-        }); 
+  var results = '<table class="foswikiTable" id="edit_'+menu_name+'"><tr><th style="display:none">icon</th><th>title</th><th>link</th><th>edit</th></tr>';
+  //add rows
+  var buttons = '<a onclick="moveUp(event);" class="foswikiButton"><img src="'+foswiki.pubUrl+'/'+foswiki.systemWebName+'/DocumentGraphics/up.png" alt="up" /></a>'+
+                '<a onclick="createNew(event);" class="foswikiButton"><img src="'+foswiki.pubUrl+'/'+foswiki.systemWebName+'/DocumentGraphics/plus.png" alt="new" /></a>'+
+                '<a onclick="deleteItem(event);" class="foswikiButton"><img src="'+foswiki.pubUrl+'/'+foswiki.systemWebName+'/DocumentGraphics/minus.png" alt="delete" /></a>'+
+                '<a onclick="moveDown(event);" class="foswikiButton"><img src="'+foswiki.pubUrl+'/'+foswiki.systemWebName+'/DocumentGraphics/down.png" alt="down" /></a>';
+  $(menu).find('.rootVoice').each(function(){
+      //TODO: need to hide the 'edit' item, and refuse to edit non-simple menus
+      if ($(this).attr('class').match('editMenu')) {
+        return;
+      }
+      results += '<tr><td style="display:none">'+'none'+'</td><td>'+$(this).text()+'</td><td>'+$(this).attr('href')+'</td><td>'+buttons+'</td></tr>';
+          });
+  results += '</table>';
+  var editDialog = '<div><b>Edit '+menu_name+' on '+web+'.'+topic+'</b><br />'+results+'<br />'+
+        '<a onclick="saveChanges(event);" class="foswikiSubmit"><img src="'+foswiki.pubUrl+'/'+foswiki.systemWebName+'/DocumentGraphics/plus.png" alt="OK" />Save changes</a>'+
+        '<a onclick="$.modal.close();" class="foswikiButton"><img src="'+foswiki.pubUrl+'/'+foswiki.systemWebName+'/DocumentGraphics/minus.png" alt="Cancel" />Cancel</a>'+
+        '</div>';
+  
+  $(editDialog).modal({escClose:true, overlayClose:true, autoPosition: false, position: ['20%','10%']});
   
 
   return false; //prevent the default handler
+}
+moveUp = function(event) {
+}
+createNew = function(event) {
+}
+deleteItem = function(event) {
+}
+moveDown = function(event) {
+  alert($(event).text());
+}
+saveChanges = function(event) {
+  alert('save..');
+  //figure out what changed, sent to server..
+  $.modal.close();
 }

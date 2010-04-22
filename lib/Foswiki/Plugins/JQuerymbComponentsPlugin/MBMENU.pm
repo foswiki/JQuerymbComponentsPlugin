@@ -93,7 +93,7 @@ sub popMenu {
         return Foswiki::Plugins::JQuerymbComponentsPlugin::MBMENU::MENUITEM($this, {
                     _DEFAULT=>" %ICONURL{uweb_m12}% edit menu",
                     type=>"footer",
-                    css=>"foswikiRight",
+                    css=>"foswikiRight editMenu",
                     action=>"return editMenu(this, '$name', '%WEB%', '%TOPIC%'); return false;"
                     }, $theTopic, $theWeb );
     }
