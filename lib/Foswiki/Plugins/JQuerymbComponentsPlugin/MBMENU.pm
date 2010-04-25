@@ -87,15 +87,20 @@ sub popMenu {
     my ( $this, $params, $theTopic, $theWeb ) = @_;
 
     my $name = pop(@menuStack);
-    if (Foswiki::Func::isGuest()) {
-        return '<span class="foswikiRight rootMenu">%LOGIN%</span>';
-    } else {
-        return Foswiki::Plugins::JQuerymbComponentsPlugin::MBMENU::MENUITEM($this, {
-                    _DEFAULT=>" %ICONURL{uweb_m12}% edit menu",
-                    type=>"footer",
-                    css=>"foswikiRight editMenu",
-                    action=>"return editMenu(this, '$name', '%WEB%', '%TOPIC%'); return false;"
-                    }, $theTopic, $theWeb );
+    
+    #add editing _if_ the next super plugin is in
+    if ($Foswiki::cfg{Plugins}{JQZenTablePlugin}{Enabled}){
+        if (Foswiki::Func::isGuest()) {
+            return '<span class="foswikiRight rootMenu">%LOGIN%</span>';
+        } else {
+            #TODO: use topic permissions.. 
+            return Foswiki::Plugins::JQuerymbComponentsPlugin::MBMENU::MENUITEM($this, {
+                        _DEFAULT=>" %ICONURL{uweb_m12}% edit menu",
+                        type=>"footer",
+                        css=>"foswikiRight editMenu",
+                        action=>"return \$(this).editMenu('$name', '%WEB%', '%TOPIC%'); return false;"
+                        }, $theTopic, $theWeb );
+        }
     }
 }
 
@@ -121,6 +126,19 @@ sub MENU {
 '<script type="text/javascript" src="%PUBURLPATH%/%SYSTEMWEB%/JQuerymbMenu/example.js"></script>',
         'JQUERYPLUGIN::MB.MENU'
     );
+    
+    
+    Foswiki::Func::addToZone(
+        "body",
+        'mbMenu::zentable',
+            "<link rel='stylesheet' type='text/css' href='%PUBURL%/%SYSTEMWEB%/JQuerymbComponentsPlugin/zentable/css/zentable.css'>
+<script type='text/javascript' src='%PUBURL%/%SYSTEMWEB%/JQuerymbComponentsPlugin/zentable/js/jquery.mousewheel.min.js'></script>
+<script type='text/javascript' src='%PUBURL%/%SYSTEMWEB%/JQuerymbComponentsPlugin/zentable/js/jquery.timers-1.1.2.js'></script>
+<script type='text/javascript' src='%PUBURL%/%SYSTEMWEB%/JQuerymbComponentsPlugin/zentable/js/jquery.zentable.js'></script>
+<script type='text/javascript'>foswiki.mbMenuRootTopic = '$theWeb.$theTopic';</script>
+",
+        'JQUERYPLUGIN::MB.MENU'
+        );
 
     return "
 <div class=\"mbMenuRoot\" id=\"$name\">
@@ -175,6 +193,7 @@ sub MENUITEM {
 
     my $title  = $params->{_DEFAULT} || '';
     my $menu   = $params->{menu};
+    $menu = 'empty' if (defined($menu) and $menu eq '');
     my $img    = $params->{img};
     my $action = '';            #not sure why the action: attribute isn't working for me - TODO
     $action = 'onclick="'.$params->{action}.'" ' if ( defined( $params->{action} ) );
@@ -202,7 +221,7 @@ sub MENUITEM {
 
 =begin TML
 
----++ ClassMethod ENDSUBMENU( $this, $params, $topic, $web ) -> $result
+---++ ClassMethod SUBMENU( $this, $params, $topic, $web ) -> $result
 
 
 =cut

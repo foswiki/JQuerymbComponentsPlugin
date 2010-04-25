@@ -4,13 +4,26 @@ data/System/JQuerymbComponentsPlugin.txt 0644 Documentation
 lib/Foswiki/Plugins/JQuerymbComponentsPlugin.pm 0644 Perl module
 lib/Foswiki/Plugins/JQuerymbComponentsPlugin/MBMENU.pm 0644 Perl module
 
+#mb.menu customisations
 data/System/JQuerymbMenu.txt 0644 Documentation
 pub/System/JQuerymbMenu/example.js 0644 Documentation
 pub/System/JQuerymbMenu/menu_red.css 0644 Documentation
+pub/System/JQuerymbMenu/images/header_bgnd.jpg
+pub/System/JQuerymbMenu/images/menuArrow.gif
+pub/System/JQuerymbMenu/images/bgnd_sel_4.png
+pub/System/JQuerymbMenu/images/browser.png
+pub/System/JQuerymbMenu/images/DV_Tools.jpg
+pub/System/JQuerymbMenu/images/menuArrow_w.gif
+pub/System/JQuerymbMenu/images/bgnd_sel_1.jpg
+pub/System/JQuerymbMenu/images/bgnd_sel_2.jpg
+pub/System/JQuerymbMenu/images/bgnd_sel_3.jpg
 
+
+#       pub/System/JQuerymbComponentsPlugin/zentable
 
 
 !noci
+#upstream files
 
 pub/System/JQuerymbComponentsPlugin/jquery.mb.extruder.1.5
 pub/System/JQuerymbComponentsPlugin/jquery.mb.extruder.1.5/licenses

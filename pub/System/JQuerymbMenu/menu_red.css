@@ -30,7 +30,7 @@
 }
 
 .rootVoices a.rootVoice.selected{
-	background: orangered url("../images/bgnd_sel_4.png");
+	background: orangered url("images/bgnd_sel_4.png");
 	padding:8px;
 	color:#ffffff;
 	cursor: pointer;
@@ -118,7 +118,7 @@
 }
 .menuContainer .selected td{
 	background-color:lavender;
-	background-image:url("../images/bgnd_sel_2.jpg")
+	background-image:url("images/bgnd_sel_2.jpg")
 }
 .menuContainer .literalMenu td{
 	background-color:#f3f3f3;
@@ -137,12 +137,12 @@
 	color: #cccccc;
 }
 .menuContainer .subMenuOpener{
-	background-image:url("../images/menuArrow_w.gif");
+	background-image:url("images/menuArrow_w.gif");
 	background-repeat:no-repeat;
 	background-position:right;
 }
 .menuContainer .selected .subMenuOpener{
-	background-image:url("../images/menuArrow.gif");
+	background-image:url("images/menuArrow.gif");
 	background-repeat:no-repeat;
 	background-position:right;
 }
