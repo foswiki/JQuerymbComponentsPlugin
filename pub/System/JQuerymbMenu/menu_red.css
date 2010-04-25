@@ -14,7 +14,7 @@
 	background-color:grey;
 	padding:5px 5px 8px;
 }
-.rootVoices a.rootVoice {
+.rootVoices a {
 	vertical-align:middle;
 	background-color:transparent;
 	width:120px;
@@ -29,7 +29,7 @@
 	/*-webkit-border-top-left-radius:8px;*/
 }
 
-.rootVoices a.rootVoice.selected{
+.rootVoices a:hover{
 	background: orangered url("images/bgnd_sel_4.png");
 	padding:8px;
 	color:#ffffff;
@@ -125,7 +125,7 @@
 }
 .menuContainer .selected td a{
   color:#000;
-  text-shadow:#fff 2px 2px 1px;
+  /* text-shadow:#fff 2px 2px 1px; */
   /* display:block; I'm not sure this is a good idea. */
 }
 .menuContainer .NNliteralMenu td a{
@@ -148,4 +148,9 @@
 }
 .menuContainer td.voice {
 	text-align: left;
+}
+/* over-ride foswiki colouring for hover*/
+.menuContainer :link:hover,
+.menuContainer :visited:hover {
+	background-color:transparent;
 }

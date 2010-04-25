@@ -91,17 +91,20 @@ sub popMenu {
     #add editing _if_ the next super plugin is in
     if ($Foswiki::cfg{Plugins}{JQZenTablePlugin}{Enabled}){
         if (Foswiki::Func::isGuest()) {
-            return '<span class="foswikiRight rootMenu">%LOGIN%</span>';
+            return '<div class="foswikiRight editMenu">%LOGIN%</div>';
         } else {
+            require Foswiki::Plugins::JQZenTablePlugin;
+            Foswiki::Plugins::JQZenTablePlugin::addMenuEditingToZone($theWeb, $theTopic);
             #TODO: use topic permissions.. 
             return Foswiki::Plugins::JQuerymbComponentsPlugin::MBMENU::MENUITEM($this, {
                         _DEFAULT=>" %ICONURL{uweb_m12}% edit menu",
                         type=>"footer",
-                        css=>"foswikiRight editMenu",
+                        css=>"foswikiRight editMenu rootVoice",
                         action=>"return \$(this).editMenu('$name', '%WEB%', '%TOPIC%'); return false;"
                         }, $theTopic, $theWeb );
         }
     }
+    return '';
 }
 
 
@@ -126,19 +129,6 @@ sub MENU {
 '<script type="text/javascript" src="%PUBURLPATH%/%SYSTEMWEB%/JQuerymbMenu/example.js"></script>',
         'JQUERYPLUGIN::MB.MENU'
     );
-    
-    
-    Foswiki::Func::addToZone(
-        "body",
-        'mbMenu::zentable',
-            "<link rel='stylesheet' type='text/css' href='%PUBURL%/%SYSTEMWEB%/JQuerymbComponentsPlugin/zentable/css/zentable.css'>
-<script type='text/javascript' src='%PUBURL%/%SYSTEMWEB%/JQuerymbComponentsPlugin/zentable/js/jquery.mousewheel.min.js'></script>
-<script type='text/javascript' src='%PUBURL%/%SYSTEMWEB%/JQuerymbComponentsPlugin/zentable/js/jquery.timers-1.1.2.js'></script>
-<script type='text/javascript' src='%PUBURL%/%SYSTEMWEB%/JQuerymbComponentsPlugin/zentable/js/jquery.zentable.js'></script>
-<script type='text/javascript'>foswiki.mbMenuRootTopic = '$theWeb.$theTopic';</script>
-",
-        'JQUERYPLUGIN::MB.MENU'
-        );
 
     return "
 <div class=\"mbMenuRoot\" id=\"$name\">
