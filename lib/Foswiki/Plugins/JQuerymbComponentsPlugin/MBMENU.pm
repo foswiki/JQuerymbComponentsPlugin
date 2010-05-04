@@ -88,10 +88,11 @@ sub popMenu {
 
     my $name = pop(@menuStack);
     
+    
     #add editing _if_ the next super plugin is in
-    if ($Foswiki::cfg{Plugins}{JQZenTablePlugin}{Enabled}){
+    if (defined($name) and ($Foswiki::cfg{Plugins}{JQZenTablePlugin}{Enabled})){
         if (Foswiki::Func::isGuest()) {
-            return '<div class="foswikiRight editMenu">%LOGIN%</div>';
+            return '<span class="foswikiRight editMenu">%LOGIN%</span>';
         } else {
             require Foswiki::Plugins::JQZenTablePlugin;
             Foswiki::Plugins::JQZenTablePlugin::addMenuEditingToZone($theWeb, $theTopic);
@@ -123,10 +124,38 @@ sub MENU {
         'mbMenu::menu_red_' . $name,
         '<link rel="stylesheet" href="' . $extraCss . '" type="text/css"/>'
     );
+    
     Foswiki::Func::addToZone(
         "body",
-        'mbMenu::simple_js',
-'<script type="text/javascript" src="%PUBURLPATH%/%SYSTEMWEB%/JQuerymbMenu/example.js"></script>',
+        'mbMenu::initializer-'.$name,
+'<script type="text/javascript">
+  $(function() {
+    $("#'.$name.'").buildMenu({
+        //template: foswiki.pubUrlPath + "/" + foswiki.systemWebName + "/JQuerymbComponentsPlugin/jquery.mb.menu/menuVoices.html",
+        template: foswiki.scriptUrlPath+"/rest/JQZenTablePlugin/getEditForUndefinedMenu",
+        additionalData: "pippo=1;mbMenuRootTopic="+foswiki.mbMenuRootTopic,
+        menuWidth: 200,
+        openOnRight: false,
+        menuSelector: ".menuContainer",
+        iconPath:foswiki.pubUrlPath+"/"+foswiki.systemWebName +"/JQuerymbComponentsPlugin/jquery.mb.menu/ico/",
+        iconPath: "",
+        hasImages: true,
+        fadeInTime: 100,
+        fadeOutTime: 300,
+        adjustLeft: 2,
+        minZindex: "auto",
+        adjustTop: 10,
+        opacity: .95,
+        shadow: true,
+        shadowColor: "#ccc",
+        hoverIntent: 0,
+        openOnClick: false,
+        closeOnMouseOut: true,
+        closeAfter: 1000,
+        hoverInted: 400
+    });
+  });
+</script>',
         'JQUERYPLUGIN::MB.MENU'
     );
 

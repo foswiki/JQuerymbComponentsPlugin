@@ -154,3 +154,7 @@
 .menuContainer :visited:hover {
 	background-color:transparent;
 }
+/* get the float-right menu element lined back up. */
+.rootVoices a.rootVoice.foswikiRight {
+	margin:-6px;
+}

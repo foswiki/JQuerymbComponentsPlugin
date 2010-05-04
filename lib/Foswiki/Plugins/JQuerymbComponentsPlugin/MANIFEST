@@ -6,7 +6,6 @@ lib/Foswiki/Plugins/JQuerymbComponentsPlugin/MBMENU.pm 0644 Perl module
 
 #mb.menu customisations
 data/System/JQuerymbMenu.txt 0644 Documentation
-pub/System/JQuerymbMenu/example.js 0644 Documentation
 pub/System/JQuerymbMenu/menu_red.css 0644 Documentation
 pub/System/JQuerymbMenu/images/header_bgnd.jpg
 pub/System/JQuerymbMenu/images/menuArrow.gif

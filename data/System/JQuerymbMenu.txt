@@ -19,7 +19,6 @@ This is a powerful jQuery component to build easily a multilevel tree menu or a 
 %ADDTOZONE{"body" 
     tag="mbMenu::DEMO" 
     text="<link rel='stylesheet' href='%PUBURLPATH%/%SYSTEMWEB%/JQuerymbComponentsPlugin/jquery.mb.menu/css/menu_red.css' type='text/css'/>
-          <script type='text/javascript' src='%ATTACHURLPATH%/example.js'></script>"
     requires="JQUERYPLUGIN::MB.MENU"
 }%
 
@@ -40,18 +39,18 @@ This is a powerful jQuery component to build easily a multilevel tree menu or a 
 <!-- menues -->
 <div id="menu_1" class="mbmenu">
   <a rel="title" >title menu_1.1</a> <!-- menuvoice title-->
-  <a href="#" class="{img: 'ico_view.gif'}" >menu_1.1 (href target _self) </a> <!-- menuvoice with href-->
+  <a href="#" class="{img: '%ICONPATH%/ico_view.gif'}" >menu_1.1 (href target _self) </a> <!-- menuvoice with href-->
   <a class="{action: 'document.title=(\'menu_1.2\')'}" >menu_1.2</a> <!-- menuvoice with js action-->
   <a rel="separator"> </a> <!-- menuvoice separator-->
   <a href="#" class="{action: 'document.title=(\'menu_1.3\')', disabled:true}">menu_1.3</a> <!-- menuvoice disabled-->
-  <a class="{action: 'document.title=(\'menu_1.4\')', menu:'menu_1', img: '24-book-blue-check.png'}">menu_1.4</a><!-- menuvoice with js action, image and submenu-->
+  <a class="{action: 'document.title=(\'menu_1.4\')', menu:'menu_1', img: '%ICONPATH%/24-book-blue-check.png'}">menu_1.4</a><!-- menuvoice with js action, image and submenu-->
 </div>
 
 <div id="menu_2" class="mbmenu">
-  <a rel="title" class="{action: 'document.title=(\'menu_2.1\')', img: 'icon_13.png'}">menu_2.1 TITLE</a>
+  <a rel="title" class="{action: 'document.title=(\'menu_2.1\')', img: '%ICONPATH%/icon_13.png'}">menu_2.1 TITLE</a>
   <a class="{action: 'document.title=(\'menu_2.2\')'}">menu_2.2</a>
-  <a class="{menu: 'sub_menu_1', img: 'icon_14.png'}">menu_2.3</a>
-  <a class="{menu: 'sub_menu_2', img: '24-tag-add.png'}">menu_2.4</a>
+  <a class="{menu: 'sub_menu_1', img: '%ICONPATH%/icon_14.png'}">menu_2.3</a>
+  <a class="{menu: 'sub_menu_2', img: '%ICONPATH%/24-tag-add.png'}">menu_2.4</a>
   <a rel="separator"> </a>
   <a class="{action: 'document.title=(\'menu_2.4\')'}">menu_2.5</a>
 </div>
@@ -107,5 +106,6 @@ This is a powerful jQuery component to build easily a multilevel tree menu or a 
 
 <!-- end menues -->
 
+   * Set ICONPATH= %PUBURLPATH%/%SYSTEMWEB%/JQuerymbComponentsPlugin/jquery.mb.menu/ico/
 
 %META:FILEATTACHMENT{name="example.js" attachment="example.js" attr="" comment="" date="1257681912" path="example.js" size="250" user="ProjectContributor" version="1"}%
