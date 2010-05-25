@@ -18,22 +18,21 @@ This is a powerful jQuery component to build easily a multilevel tree menu or a 
 %JQREQUIRE{mb.menu}%
 %ADDTOZONE{"body" 
     tag="mbMenu::DEMO" 
-    text="<link rel='stylesheet' href='%PUBURLPATH%/%SYSTEMWEB%/JQuerymbComponentsPlugin/jquery.mb.menu/css/menu_red.css' type='text/css'/>
+    text="<link rel='stylesheet' href='%PUBURLPATH%/%SYSTEMWEB%/JQuerymbComponentsPlugin/jquery.mb.menu/css/menu_red.css' type='text/css'/>"
     requires="JQUERYPLUGIN::MB.MENU"
 }%
 
----+++ Packaged Demo (hardcoded html)
+---+++ demo made using a mixture of the =MENU= macro and hardcoded HTML
 
-<div id="myMenu" align="left" style="align:left;width:100%">
-  <!-- start horizontal menu -->
-  <table class="rootVoices" cellspacing='0' cellpadding='0' border='0'><tr>
-    <td class="rootVoice {menu: 'menu_12'}" >ajax menu 12</td>
-    <td class="rootVoice {menu: 'menu_2'}" >menu 2</td>
-    <td class="rootVoice {menu: 'menu_3'}" >menu 3</td>
-    <td class="rootVoice {menu: 'empty'}" onclick="window.open('http://www.open-lab.com','ww');">goto open-lab.com</td>
-  </tr></table>
-  <!-- end horizontal menu -->
-</div>
+%MENU{
+		name="demoMenu"
+		css="%PUBURLPATH%/%SYSTEMWEB%/JQuerymbMenu/menu_red.css"
+	}%
+   %MENUITEM{"ajax menu 12" menu="menu_12"}%
+   %MENUITEM{"menu 2" menu="menu_2"}%
+   %MENUITEM{"menu 3" menu="menu_3"}%
+   %MENUITEM{"goto foswiki.org" href="http://foswiki.org" menu="empty"}%
+%ENDMENU%
 
 
 <!-- menues -->

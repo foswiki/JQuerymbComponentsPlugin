@@ -138,7 +138,7 @@ sub MENU {
         openOnRight: false,
         menuSelector: ".menuContainer",
         iconPath:foswiki.pubUrlPath+"/"+foswiki.systemWebName +"/JQuerymbComponentsPlugin/jquery.mb.menu/ico/",
-        iconPath: "",
+        //iconPath: "",
         hasImages: true,
         fadeInTime: 100,
         fadeOutTime: 300,
