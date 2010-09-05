@@ -118,15 +118,15 @@ sub MENU {
 
     #TODO: need to de-hardcode the js - is only works on 'myMenu' atm
 
-#  Foswiki::Func::addToZone( "body", 'mbMenu::menu_red','<link rel="stylesheet" href="%PUBURLPATH%/%SYSTEMWEB%/JQuerymbComponentsPlugin/jquery.mb.menu/css/menu_red.css" type="text/css"/>');
+#  Foswiki::Func::addToZone( "script", 'mbMenu::menu_red','<link rel="stylesheet" href="%PUBURLPATH%/%SYSTEMWEB%/JQuerymbComponentsPlugin/jquery.mb.menu/css/menu_red.css" type="text/css"/>');
     Foswiki::Func::addToZone(
-        "body",
+        "script",
         'mbMenu::menu_red_' . $name,
         '<link rel="stylesheet" href="' . $extraCss . '" type="text/css"/>'
     );
     
     Foswiki::Func::addToZone(
-        "body",
+        "script",
         'mbMenu::initializer-'.$name,
 '<script type="text/javascript">
   $(function() {
